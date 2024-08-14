@@ -512,7 +512,13 @@ class VerusProcPluginChartly {
 
         // TODO, scan from list
         //  currently hardcoded to only scan Bridge.vETH        
-        const basketid = "i3f7tSctFkiPpiedY8QR5Tep9p4qDVebDx";
+        // const basketid = "i3f7tSctFkiPpiedY8QR5Tep9p4qDVebDx"; //bridge.veth
+        // const basketid = "iHax5qYQGbcMGqJKKrPorpzUBX2oFFXGnY"; // pure
+        // const basketid = "i9kVWKU2VwARALpbXn4RS9zvrhvNRaUibb"; // kaiju
+        // const basketid = "i4Xr5TAMrDTD99H69EemhjDxJ4ktNskUtc"; // switch
+        // const basketid = "iRt7tpLewArQnRddBVFARGKJStK6w5pDmC"; // nati
+        const basketid = "iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB"; // bridge.varrr
+        // const basketid = "i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9"; // bridge.vdex
         
         // if new block ...
         if (this.lastBlock != this.verus.info.blocks) {
@@ -524,13 +530,19 @@ class VerusProcPluginChartly {
           const ticker_blocks = 20;
 
           // if we have cached the currency definition
-          if (this.verus.currencies[basketid] && this.verus.currencies[basketid].startblock && this.verus.currencies[basketid].startblock < this.verus.info.blocks) {
+	  // vrsc
+          //if (this.verus.currencies[basketid] && this.verus.currencies[basketid].startblock && this.verus.currencies[basketid].startblock < this.verus.info.blocks) {
+	  // pbaas
+          if (this.verus.currencies[basketid] && this.verus.currencies[basketid].startblock ) {
             
             // gather from start block if needed
             if (!this.markets[basketid]) {
               this.markets[basketid] = [];
 
-              let start = this.verus.currencies[basketid].startblock;
+	      //vrsc
+              //let start = this.verus.currencies[basketid].startblock;
+              //pbaas
+              let start = 0
               let end = this.verus.info.blocks;
               if ((end - start) > maxhistory) {
                 start = (end - maxhistory);
@@ -596,6 +608,8 @@ class VerusProcPluginChartly {
 
             // only keep 4 weeks of history
             let oldestblocktime = (Date.now()/1000) - 2.628e+6;
+  	    // for vdex early stage, keep only 2 weeks
+            //let oldestblocktime = (Date.now()/1000) - 1.314e+6;
             while (this.markets[basketid][0].blocktime < oldestblocktime) {
               this.markets[basketid].shift();
             }

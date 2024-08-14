@@ -113,11 +113,11 @@ var vproc;
 
 async function startApp() {
 
-  vconf = getVerusConf();
-  if (!vconf) {
-    console.error("Unable to locate verus config!");
-    return;
-  }
+//  vconf = getVerusConf();
+//  if (!vconf) {
+//    console.error("Unable to locate verus config!");
+//    return;
+//  }
   
   let verbose = config.verbose || 0;
   argv.forEach((val, index) => {

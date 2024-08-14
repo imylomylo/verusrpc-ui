@@ -431,7 +431,21 @@ router.use((req, res, next) => {
 
 // HOME page
 router.get('/', (req, res) => {
-    renderHome(req, res);
+    //renderHome(req, res);
+    //bridgevdex
+    //res.redirect('/view/i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9')
+    //bridgevarrr
+    res.redirect('/view/iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB')
+    //nati
+    //res.redirect('/view/iRt7tpLewArQnRddBVFARGKJStK6w5pDmC')
+    //pure
+    //res.redirect('/view/iHax5qYQGbcMGqJKKrPorpzUBX2oFFXGnY')
+    //kaiju
+    //res.redirect('/view/i9kVWKU2VwARALpbXn4RS9zvrhvNRaUibb')
+    //switch
+    //res.redirect('/view/i4Xr5TAMrDTD99H69EemhjDxJ4ktNskUtc')
+    //bridge.veth
+    //res.redirect('/view/i3f7tSctFkiPpiedY8QR5Tep9p4qDVebDx')
 })
 router.get('/view/:currencyid', (req, res) => {
     renderViewCurrency(req, res);
