@@ -1249,8 +1249,8 @@ class VerusRPC {
       return r;
     }
     
-    async listCurrencies(useCache=undefined) {
-      let rsp = await this.request("listcurrencies", [], useCache);
+    async listCurrencies(useCache=undefined, systemname) {
+      let rsp = await this.request("listcurrencies", [{fromsystem:systemname}], useCache);
       if (rsp && !rsp.error) {
         let list = rsp.result;
         for (let i in list) {
