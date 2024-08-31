@@ -166,7 +166,13 @@ async function startApp() {
     console.log("Caching currencies...");
     
     // cache currencies now
-    await vrpc.listCurrencies(false);
+    // await vrpc.listCurrencies(false);
+    // instead of looping on each system, awaits have to be at top level, not in the loop
+    // so no effort in trying to rewrite things to make work nicely. simple hack.
+    await vrpc.listCurrencies(false, "vrsc");
+    await vrpc.listCurrencies(false, "varrr");
+    await vrpc.listCurrencies(false), "vdex";
+
 
     // start verus processor
     await vproc.start();
