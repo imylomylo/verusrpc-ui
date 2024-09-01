@@ -20,11 +20,12 @@ function hasFlag(integer, flag) {
 }
 
 class VerusProcPluginChartly {
-    constructor(config, rpc, api, verbose=0) {      
+    constructor(basketid, rpc, api, verbose=0) {      
         this.verus = rpc;
         this.api = api;
         this.verbose = verbose;
-        this.config = config
+        this.config = undefined
+        this.basketid = basketid
 
         this.executing = false;
         
@@ -520,7 +521,7 @@ class VerusProcPluginChartly {
         // const basketid = "iRt7tpLewArQnRddBVFARGKJStK6w5pDmC"; // nati
         // const basketid = "iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB"; // bridge.varrr
         // const basketid = "i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9"; // bridge.vdex
-        const basketid = this.config.basketid
+        const basketid = this.basketid
         // if new block ...
         if (this.lastBlock != this.verus.info.blocks) {
           this.lastBlock = this.verus.info.blocks;
