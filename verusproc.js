@@ -288,7 +288,7 @@ class VerusPROC {
       });
       for (let c in ploader) {
         let p = ploader[c];
-        plugins[c] = new p(this.verus, this.api, 1);
+        plugins[c] = new p(this.config, this.verus, this.api, 1);
         await plugins[c].init(config);
       }
     }
