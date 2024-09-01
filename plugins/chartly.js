@@ -520,7 +520,7 @@ class VerusProcPluginChartly {
         // const basketid = "iRt7tpLewArQnRddBVFARGKJStK6w5pDmC"; // nati
         // const basketid = "iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB"; // bridge.varrr
         // const basketid = "i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9"; // bridge.vdex
-        const basketid = config.basketid
+        const basketid = this.config.basketid
         // if new block ...
         if (this.lastBlock != this.verus.info.blocks) {
           this.lastBlock = this.verus.info.blocks;
