@@ -20,11 +20,11 @@ function hasFlag(integer, flag) {
 }
 
 class VerusProcPluginChartly {
-    constructor(rpc, api, verbose=0) {      
+    constructor(config, rpc, api, verbose=0) {      
         this.verus = rpc;
         this.api = api;
         this.verbose = verbose;
-        this.config = undefined
+        this.config = config
 
         this.executing = false;
         
@@ -83,8 +83,7 @@ class VerusProcPluginChartly {
       }
     }
 
-    async init(config) {
-      this.config = config
+    async init() {
       // api into our cache
       this.api.get('/api/latest/:basketid', async (req, res) => {
         if (this.markets[req.params.basketid]) {
