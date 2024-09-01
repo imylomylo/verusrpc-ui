@@ -435,7 +435,7 @@ router.get('/', (req, res) => {
     //bridgevdex
     //res.redirect('/view/i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9')
     //bridgevarrr
-    res.redirect('/view/iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB')
+    // res.redirect('/view/iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB')
     //nati
     //res.redirect('/view/iRt7tpLewArQnRddBVFARGKJStK6w5pDmC')
     //pure
@@ -446,6 +446,7 @@ router.get('/', (req, res) => {
     //res.redirect('/view/i4Xr5TAMrDTD99H69EemhjDxJ4ktNskUtc')
     //bridge.veth
     //res.redirect('/view/i3f7tSctFkiPpiedY8QR5Tep9p4qDVebDx')
+    res.redirect('/view/'+config.basketid)
 })
 router.get('/view/:currencyid', (req, res) => {
     renderViewCurrency(req, res);

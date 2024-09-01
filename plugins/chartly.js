@@ -24,6 +24,7 @@ class VerusProcPluginChartly {
         this.verus = rpc;
         this.api = api;
         this.verbose = verbose;
+        this.config = undefined
 
         this.executing = false;
         
@@ -82,7 +83,8 @@ class VerusProcPluginChartly {
       }
     }
 
-    async init() {
+    async init(config) {
+      this.config = config
       // api into our cache
       this.api.get('/api/latest/:basketid', async (req, res) => {
         if (this.markets[req.params.basketid]) {
@@ -517,9 +519,9 @@ class VerusProcPluginChartly {
         // const basketid = "i9kVWKU2VwARALpbXn4RS9zvrhvNRaUibb"; // kaiju
         // const basketid = "i4Xr5TAMrDTD99H69EemhjDxJ4ktNskUtc"; // switch
         // const basketid = "iRt7tpLewArQnRddBVFARGKJStK6w5pDmC"; // nati
-        const basketid = "iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB"; // bridge.varrr
+        // const basketid = "iD5WRg7jdQM1uuoVHsBCAEKfJCKGs1U3TB"; // bridge.varrr
         // const basketid = "i6j1rzjgrDhSmUYiTtp21J8Msiudv5hgt9"; // bridge.vdex
-        
+        const basketid = config.basketid
         // if new block ...
         if (this.lastBlock != this.verus.info.blocks) {
           this.lastBlock = this.verus.info.blocks;

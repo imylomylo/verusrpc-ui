@@ -140,7 +140,7 @@ async function startApp() {
   vproc = new VerusPROC(vrpc, api, verbose);
   
   await vrpc.init();
-  await vproc.initPlugins();
+  await vproc.initPlugins(config);
 
   console.log("Connecting to daemon url", daemon_url);
 

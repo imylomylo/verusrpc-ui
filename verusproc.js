@@ -274,7 +274,7 @@ class VerusPROC {
       }
     }
     
-    async initPlugins() {
+    async initPlugins(config) {
       let ploader = {};
       fs.readdirSync(PLUGINS_DIR).forEach(file => {
         if (file.endsWith(".js")) {
@@ -289,7 +289,7 @@ class VerusPROC {
       for (let c in ploader) {
         let p = ploader[c];
         plugins[c] = new p(this.verus, this.api, 1);
-        await plugins[c].init();
+        await plugins[c].init(config);
       }
     }
     
